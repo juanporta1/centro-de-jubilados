@@ -13,3 +13,5 @@ Tras ejecutar el ultimo comando deberá crear un super usuario. Por ultimo puede
 ```
   python manage.py runserver
 ```
+
+Si ahora entra a la dirección del servidor desde el navegador web y se dirije a /admin, podrá iniciar sesion con su super usuario y hacer uso del programa.
