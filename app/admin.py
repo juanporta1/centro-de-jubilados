@@ -4,6 +4,7 @@ from django.contrib import admin
 from .models import Member, Settings, Payment, MemberActivityLog
 
 class MemberAdmin(admin.ModelAdmin):
+    actions = None
     list_display = ("memberNumber", "name", "lastname", "dni", "home", "isActive")
     list_display_links = ("memberNumber", "name", "lastname", "dni", "home", "isActive")
     search_fields = ("name", "lastname", "dni", "memberNumber")  # buscador arriba
@@ -22,6 +23,7 @@ class MemberAdmin(admin.ModelAdmin):
 admin.site.register(Member, MemberAdmin)
 
 class SettingsAdmin(admin.ModelAdmin):
+    actions = None
     list_display = ("paymentAmount",)
     # # Evitar que se agreguen nuevos registros
     def has_add_permission(self, request):
@@ -40,6 +42,7 @@ def actualPaymentAmount():
 
 
 class PaymentAdmin(admin.ModelAdmin):
+    actions = None
     list_filter = ("month", "method")  # filtros que aparecen a la derecha
     list_display = ("member__memberNumber", "member__name", "member__lastname", "month", "amount", "date", "method")
     list_display_links = ("member__memberNumber", "member__name", "member__lastname", "month", "amount", "date", "method")
@@ -73,7 +76,7 @@ class PaymentAdmin(admin.ModelAdmin):
 admin.site.register(Payment, PaymentAdmin)
 
 class MemberActivityLogAdmin(admin.ModelAdmin):
-    
+    actions = None
     list_display = ("member_memberNumber", "member_name", "member_lastname", "activity", "date")
     list_filter = ("activity", "date")  # filtros que aparecen a la derecha
     search_fields = ('member__name', 'member__lastname', 'member__dni', "member__memberNumber")
