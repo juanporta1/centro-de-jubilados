@@ -11,9 +11,9 @@ class MemberAdmin(admin.ModelAdmin):
     # list_display = ("memberNumber", "name", "lastname", "dni", "sex", "memberDischargeDate")
     def get_fields(self, request, obj=None):
         if obj:  # si obj existe → estamos editando
-            return ( "memberNumber","isActive", "name", "lastname", "dni", "home", "birthdate", "memberRegistrationDate", "email", "phone","sex" ,"observations")
+            return ( "memberNumber","isActive", "name", "lastname", "dni", "home", "birthdate", "memberRegistrationDate", "email", "phone", "celular","sex" ,"observations")
         else:  # si obj es None → estamos creando
-            return ( "memberNumber", "name", "lastname", "dni", "home", "birthdate", "memberRegistrationDate", "email", "phone","sex" ,"observations")
+            return ( "memberNumber", "name", "lastname", "dni", "home", "birthdate", "memberRegistrationDate", "email", "phone", "celular","sex" ,"observations")
     def get_readonly_fields(self, request, obj=None):
       if obj:  # obj existe → estamos editando
           return ("memberRegistrationDate",)  # solo lectura al editar
@@ -91,8 +91,6 @@ class MemberActivityLogAdmin(admin.ModelAdmin):
     member_lastname.short_description = "Apellido"
     
     def has_add_permission(self, request):
-        return False
-    def has_delete_permission(self, request, obj=None):
         return False
     def has_change_permission(self, request, obj = ...):
         return False

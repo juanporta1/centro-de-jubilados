@@ -9,7 +9,8 @@ class Member(models.Model):
     lastname = models.CharField("Apellido",max_length=100)
     dni = models.CharField("DNI",max_length=20, unique=True)
     memberNumber = models.CharField("Número de Socio",max_length=20, unique=True)
-    phone = models.CharField("Teléfono",max_length=20, blank=True, null=True)
+    phone = models.CharField("Télefono Fijo",max_length=20, blank=True, null=True)
+    celular = models.CharField("Celular",max_length=20, blank=True, null=True)
     SEXS = [
         ('M', 'Masculino'),
         ('F', 'Femenino'),
